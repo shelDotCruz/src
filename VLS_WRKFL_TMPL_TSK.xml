@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><DataDictionaryTable class="LiqMNWorkflowTemplateTask" table="VLS_WRKFL_TMPL_TSK">
+	<columns>
+		<DataDictionaryColumn allowNulls="true" length="5" description="frequency for recurring task" attributeName="recurringFrequency" type="CHARACTER" columnName="WTT_CDE_FREQUENCY" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="5" attributeName="ownerType" type="CHARACTER" columnName="WTT_CDE_OWNER_TYPE" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="5" attributeName="statusCode" type="CHARACTER" columnName="WTT_CDE_STATUS" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="5" attributeName="typeCode" type="CHARACTER" columnName="WTT_CDE_TYPE" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="4" attributeName="completionDate" type="DATE" columnName="WTT_DTE_COMPLETE" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="4" description="end date for recurring task" attributeName="endDate" type="DATE" columnName="WTT_DTE_END" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="4" description="start date of task" attributeName="startDate" type="DATE" columnName="WTT_DTE_START" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="4" attributeName="targetCompletionDate" type="DATE" columnName="WTT_DTE_TARGET" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="1" description="Are the task start and end dates subject to business day rules" attributeName="businessDayIndicator" type="CHARACTER" columnName="WTT_IND_BUS_DAY" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="1" description="Is the completion date subject to next business day rules" attributeName="completionDateBusinessDayIndicator" type="CHARACTER" columnName="WTT_IND_BUS_DAY_CM" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="1" description="Is the date the workflow should appear subject to business day rules" attributeName="workflowBusinessDayIndicator" type="CHARACTER" columnName="WTT_IND_BUS_DAY_WR" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="1" description="Is the completion date calculated" attributeName="calculatedCompletionRule" type="CHARACTER" columnName="WTT_IND_CALC_COMP" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="1" attributeName="createdByAPI" type="CHARACTER" columnName="WTT_IND_CREATE_API" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="1" description="is the task recurring" attributeName="recurringIndicator" type="CHARACTER" columnName="WTT_IND_RECURRING" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="1" description="Is the task required to be complete for deal close" attributeName="requiredForDealClose" type="CHARACTER" columnName="WTT_IND_REQ_DEAL_C" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="1" description="Is the task required to be completed to release an outstanding" attributeName="requiredForOutstandingRelease" type="CHARACTER" columnName="WTT_IND_REQ_OST_RL" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="30" attributeName="name" type="CHARACTER" columnName="WTT_NME_TASK" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="4" description="lag days for completion rule" attributeName="numberLagDays" type="INTEGER" columnName="WTT_NUM_DAYS_LAG" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="4" description="Number of days before target completion date that workflow should appear" attributeName="numberLeadDaysForWorkflow" type="INTEGER" columnName="WTT_NUM_DAYS_LEAD" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="8" attributeName="ownerId" type="CHARACTER" columnName="WTT_RID_OWNER" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="8" attributeName="parentTaskId" type="CHARACTER" columnName="WTT_RID_PARENT" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="8" description="prerequisite task to determine completion date" attributeName="prerequisiteCompletionTaskId" type="CHARACTER" columnName="WTT_RID_PREREQ_TSK" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="8" attributeName="workflowItemId" type="CHARACTER" columnName="WTT_RID_WFITEM" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="8" description="primary key" attributeName="id" type="CHARACTER" columnName="WTT_RID_WRK_TM_TSK" primaryKey="true"/>
+		<DataDictionaryColumn allowNulls="false" length="8" description="Workflow Template RID" attributeName="workflowTemplateId" type="CHARACTER" columnName="WTT_RID_WRKFL_TMPL" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="10.6" description="Timestamp from when this row was created." attributeName="createTimeStamp" type="TIMESTAMP" columnName="WTT_TSP_REC_CREATE" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="10.6" description="Timestamp from when this row was last updated." attributeName="updateTimeStamp" type="TIMESTAMP" columnName="WTT_TSP_REC_UPDATE" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="8" description="User ID that created this row.  This is a foreign key to VLS_USER_PROFILE.UPT_UID_USERID." attributeName="createUserId" type="CHARACTER" columnName="WTT_UID_REC_CREATE" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="8" description="User ID that last updated this row.  This is a foreign key to VLS_USER_PROFILE.UPT_UID_USERID." attributeName="updateUserId" type="CHARACTER" columnName="WTT_UID_REC_UPDATE" primaryKey="false"/>
+    </columns>
+	<foreignKeysFromThisTable>
+		<DataDictionaryForeignKey relationshipType="1::1" fromColumn="WTT_RID_PREREQ_TSK" toTable="VLS_WRKFL_TMPL_TSK" toColumn="WTT_RID_WRK_TM_TSK" fromTable="VLS_WRKFL_TMPL_TSK"/>
+		<DataDictionaryForeignKey relationshipType="N::1" fromColumn="WTT_RID_WRKFL_TMPL" toTable="VLS_WRKFL_TEMPLATE" toColumn="WFT_RID_WRKFL_TMPL" fromTable="VLS_WRKFL_TMPL_TSK"/>
+    </foreignKeysFromThisTable>
+</DataDictionaryTable>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><DataDictionaryTable class="LiqMNWorkflowTemplateEvent" table="VLS_WRK_TMPL_EVENT">
+	<columns>
+		<DataDictionaryColumn allowNulls="false" length="5" attributeName="actionCode" type="CHARACTER" columnName="WTE_CDE_ACTION" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="5" attributeName="ownerTypeCode" type="CHARACTER" columnName="WTE_CDE_OWNER_TYPE" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="4" attributeName="effectiveDate" type="DATE" columnName="WTE_DTE_EFFECTIVE" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="30" attributeName="ownerName" type="CHARACTER" columnName="WTE_NME_OWNER" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="8" attributeName="ownerId" type="CHARACTER" columnName="WTE_RID_OWNER" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="8" attributeName="id" type="CHARACTER" columnName="WTE_RID_WRKT_EVENT" primaryKey="true"/>
+		<DataDictionaryColumn allowNulls="false" length="10.6" description="Timestamp from when this row was created." attributeName="createTimeStamp" type="TIMESTAMP" columnName="WTE_TSP_REC_CREATE" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="10.6" description="Timestamp from when this row was last updated." attributeName="updateTimeStamp" type="TIMESTAMP" columnName="WTE_TSP_REC_UPDATE" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="true" length="254" attributeName="comment" type="CHARACTER" columnName="WTE_TXT_COMMENT" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="8" description="User ID that created this row.  This is a foreign key to VLS_USER_PROFILE.UPT_UID_USERID." attributeName="createUserId" type="CHARACTER" columnName="WTE_UID_REC_CREATE" primaryKey="false"/>
+		<DataDictionaryColumn allowNulls="false" length="8" description="User ID that last updated this row.  This is a foreign key to VLS_USER_PROFILE.UPT_UID_USERID." attributeName="updateUserId" type="CHARACTER" columnName="WTE_UID_REC_UPDATE" primaryKey="false"/>
+    </columns>
+</DataDictionaryTable>
